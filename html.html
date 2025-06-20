@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>XYZDIK PAYMENT</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80') no-repeat center center fixed;
+      background-size: cover;
+      color: #f0f0f0;
+      text-align: center;
+    }
+
+    @keyframes rgbText {
+      0% { color: #ff0055; }
+      25% { color: #ffcc00; }
+      50% { color: #00ff99; }
+      75% { color: #0099ff; }
+      100% { color: #ff00dd; }
+    }
+
+    @keyframes rgbBorder {
+      0% { border-color: #ff0055; }
+      25% { border-color: #ffcc00; }
+      50% { border-color: #00ff99; }
+      75% { border-color: #0099ff; }
+      100% { border-color: #ff00dd; }
+    }
+
+    .container {
+      margin: 40px auto;
+      padding: 25px;
+      max-width: 420px;
+      background: rgba(0, 0, 0, 0.75);
+      border: 3px solid;
+      border-radius: 15px;
+      animation: rgbBorder 5s linear infinite;
+      box-shadow: 0 0 20px rgba(0,255,255,0.3);
+    }
+
+    h1 {
+      font-size: 28px;
+      animation: rgbText 6s linear infinite;
+      text-shadow: 0 0 10px #fff;
+    }
+
+    h2, h3 {
+      font-size: 20px;
+      color: #ffffff;
+      text-shadow: 0 0 5px #0ff;
+      margin-bottom: 10px;
+    }
+
+    .qr-container img {
+      width: 100%;
+      border: 3px solid;
+      animation: rgbBorder 5s linear infinite;
+      border-radius: 12px;
+    }
+
+    .qr-container p {
+      font-size: 13px;
+      color: #ccc;
+    }
+
+    .wallet-info {
+      margin: 15px 0;
+      color: #ffffff;
+      font-size: 15px;
+      font-weight: bold;
+      text-shadow: 0 0 5px #f0f;
+    }
+
+    .form-group {
+      margin: 15px 0;
+      color: #eee;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 2px solid #0ff;
+      background: #000;
+      color: #fff;
+    }
+
+    .checkbox {
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-size: 14px;
+    }
+
+    .checkbox input {
+      transform: scale(1.3);
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background: linear-gradient(90deg, #ff00cc, #3333ff, #00ffcc);
+      background-size: 300% 300%;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      animation: animateBG 5s ease infinite;
+      box-shadow: 0 0 10px #00ffff;
+    }
+
+    @keyframes animateBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>VINZZ PAYMENT</h1>
+    <h2>Metode Pembayaran</h2>
+
+    <div class="qr-container">
+      <h3>📌 QRIS</h3>
+      <img src="https://files.catbox.moe/9l0zps.jpg" alt="QRIS" />
+      <p>Gunakan aplikasi e-wallet apa pun untuk scan QR ini.</p>
+    </div>
+
+    <div class="wallet-info">
+      💰 e-Wallet<br />
+      DANA: VINZZ - 082313486392
+    </div>
+
+    <h2>Konfirmasi Pembayaran</h2>
+    <form onsubmit="return confirmPayment()">
+      <div class="form-group">
+        <label for="nama">Nama Akun E-Walet Anda:</label>
+        <input type="text" id="nama" placeholder="Nama lengkap" required />
+      </div>
+      <div class="checkbox">
+        <input type="checkbox" id="konfirmasi" required />
+        <label for="konfirmasi">Saya Sudah Bayar</label>
+      </div>
+      <button type="submit">Kirim Konfirmasi</button>
+    </form>
+  </div>
+
+  <script>
+    function confirmPayment() {
+      const nama = document.getElementById('nama').value;
+      const linkWA = `https://wa.me/6282313486392?text=Halo,%20saya%20*${encodeURIComponent(nama)}*%20sudah%20melakukan%20pembayaran.%20🤗`;
+      window.open(linkWA, '_blank');
+      return false;
+    }
+  </script>
+</body>
+</html>
